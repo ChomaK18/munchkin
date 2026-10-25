@@ -1,6 +1,6 @@
 # Munchkin Zombie — licznik walki
 
-Instalowalna aplikacja PWA zbudowana w React i Vite. Liczy siłę gracza i potwora, pozwala dodawać nazwane bonusy oraz kary (np. klątwę `-2`) i aktualizuje wynik walki na bieżąco. Dane są zapisywane lokalnie w przeglądarce.
+Instalowalna aplikacja PWA zbudowana w React i Vite. Pozwala rozpocząć nową grę, ustawić skład i poziomy graczy, a następnie rozpocząć walkę wybranym graczem. W trakcie gry skład jest zablokowany, a poziomy można aktualizować. Licznik walki sumuje siłę gracza i potwora wraz z nazwanymi bonusami oraz karami (np. klątwą `-2`). Dane są zapisywane lokalnie w przeglądarce.
 
 Interfejs nawiązuje kolorami do pudełka **Munchkin Zombie**: wykorzystuje postarzone beże, zielenie, czerwień i turkusowe akcenty.
 

@@ -103,37 +103,296 @@ h1 span {
   text-transform: uppercase;
 }
 
-.install-button,
-.dialog-done {
-  flex: none;
-  border: 1px solid #6e302c;
-  border-radius: 3px;
-  padding: 11px 14px;
-  color: #f3e8d0;
-  background: var(--blood);
-  box-shadow: 0 3px 0 #542522;
-  font-family: Impact, "Arial Narrow", sans-serif;
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.install-button[hidden] {
-  display: none;
-}
-
-.install-button:active,
-.dialog-done:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 #542522;
-}
-
 .intro {
   max-width: 620px;
   margin: 17px 0 22px;
   color: #49433a;
   line-height: 1.55;
+}
+
+.roster {
+  border: 1px solid #908872;
+  border-top: 5px solid var(--olive);
+  border-radius: 4px;
+  padding: 20px;
+  background:
+    radial-gradient(ellipse at 12% 15%, rgb(146 120 83 / 9%), transparent 28%),
+    #e5dcc5;
+  box-shadow: 0 9px 22px rgb(54 40 30 / 18%);
+}
+
+.battle-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.app-shell > .intro {
+  margin: 17px 0 12px;
+}
+
+.roster-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 0 0;
+}
+
+.battle-toolbar .eyebrow {
+  color: #6c7050;
+}
+
+.roster-setup-heading {
+  margin: 0 0 14px;
+}
+
+.roster-setup-heading h2,
+.battle-toolbar h2 {
+  margin: 0;
+  color: #432d29;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+.new-game-button,
+.start-game-button {
+  min-height: 44px;
+  border: 1px solid #6e302c;
+  border-radius: 3px;
+  padding: 9px 15px;
+  color: #f3e8d0;
+  background: var(--blood);
+  box-shadow: 0 2px 0 #542522;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.new-game-button:active,
+.start-game-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #542522;
+}
+
+.setup-hint {
+  margin: 0 0 12px;
+  color: #625849;
+  line-height: 1.5;
+}
+
+.empty-roster {
+  margin: 0 0 16px;
+  color: #625849;
+  line-height: 1.5;
+}
+
+.player-list {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.player-list-heading,
+.player-row:not(.is-editing) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 144px 84px;
+  align-items: center;
+  gap: 6px;
+}
+
+.player-list-heading {
+  padding: 0 8px;
+  color: #6c7050;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.player-list-heading span:first-child {
+  text-align: left;
+}
+
+.player-list-heading span:nth-child(2) {
+  text-align: center;
+}
+
+.player-row:not(.is-editing) {
+  align-items: center;
+  border: 1px solid #b4aa93;
+  border-radius: 3px;
+  padding: 6px 8px;
+  min-height: 56px;
+  background: rgb(247 240 222 / 84%);
+}
+
+.player-row.is-editing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 38px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #b4aa93;
+  border-radius: 3px;
+  padding: 8px;
+  background: rgb(247 240 222 / 84%);
+}
+
+.player-row.is-editing .player-name {
+  width: 100%;
+}
+
+.player-name {
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid #b4aa93;
+  border-radius: 3px;
+  padding: 9px 11px;
+  color: #332923;
+  background: #f0e7d2;
+  font-weight: 700;
+}
+
+.player-name::placeholder {
+  color: #a99f8a;
+  opacity: 0.65;
+}
+
+.player-name.is-missing {
+  border-color: #b77b73;
+  background: #f3dfd7;
+}
+
+.player-name-label {
+  min-width: 0;
+  overflow: hidden;
+  padding: 9px 11px;
+  color: #332923;
+  font-size: 1rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.level-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-level-column {
+  display: flex;
+  justify-content: center;
+}
+
+.level-button {
+  width: 40px;
+  height: 44px;
+  border: 1px solid #77795b;
+  border-radius: 3px;
+  color: #f3ead6;
+  background: #565b4c;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.player-level {
+  min-width: 32px;
+  color: #432d29;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1.65rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.fight-button,
+.end-fight-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 44px;
+  min-height: 44px;
+  border: 1px solid #6e302c;
+  border-radius: 3px;
+  padding: 9px 15px;
+  color: #f3e8d0;
+  background: var(--blood);
+  box-shadow: 0 2px 0 #542522;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fight-button:active,
+.end-fight-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #542522;
+}
+
+.player-remove {
+  width: 38px;
+}
+
+.add-player-button {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 13px;
+  border: 1px dashed #858364;
+  border-radius: 3px;
+  color: #39352b;
+  background: rgb(113 124 88 / 11%);
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.start-game-button {
+  width: 100%;
+  margin-top: 11px;
+  border-color: #596044;
+  background: var(--olive-dark);
+  box-shadow: 0 2px 0 #373d30;
+}
+
+.start-game-button:active {
+  box-shadow: 0 1px 0 #373d30;
+}
+
+.start-game-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.add-player-button:hover {
+  background: rgb(113 124 88 / 20%);
+}
+
+.battle-toolbar {
+  margin-top: 18px;
+  border: 1px solid #908872;
+  border-left: 5px solid var(--olive);
+  border-radius: 4px;
+  padding: 14px 18px;
+  background: #e5dcc5;
+}
+
+.battle-toolbar h2 span {
+  color: #706650;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.battle-toolbar + .intro {
+  margin-top: 12px;
 }
 
 .battle-grid {
@@ -281,7 +540,8 @@ h1 span {
 }
 
 .modifier-row input::placeholder {
-  color: #817965;
+  color: #a99f8a;
+  opacity: 0.65;
 }
 
 .modifier-row .modifier-value {
@@ -369,48 +629,6 @@ h1 span {
   display: none;
 }
 
-.install-dialog {
-  width: min(100% - 32px, 420px);
-  border: 1px solid #887e62;
-  border-radius: 4px;
-  padding: 26px;
-  color: #41352d;
-  background: var(--paper-light);
-  box-shadow: 0 20px 70px rgb(40 30 22 / 45%);
-}
-
-.install-dialog::backdrop {
-  background: rgb(41 36 31 / 72%);
-}
-
-.install-dialog h2 {
-  margin: 0 30px 12px 0;
-  color: var(--blood);
-  font-family: Impact, "Arial Narrow", sans-serif;
-  font-size: 1.7rem;
-  text-transform: uppercase;
-}
-
-.install-dialog p {
-  color: #574a3b;
-  line-height: 1.55;
-}
-
-.dialog-close {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  border: 0;
-  color: #685c4e;
-  background: transparent;
-  font-size: 1.6rem;
-}
-
-.dialog-done {
-  width: 100%;
-  margin-top: 8px;
-}
-
 button:focus-visible,
 input:focus-visible {
   outline: 3px solid var(--sweat);
@@ -432,13 +650,77 @@ input:focus-visible {
     gap: 10px;
   }
 
-  .install-button {
-    padding: 10px;
-    font-size: 0.76rem;
+  .app-shell > .intro {
+    margin: 14px 0 10px;
+    font-size: 0.9rem;
   }
 
   .combat-card {
     padding: 16px;
+  }
+
+  .roster {
+    padding: 14px;
+  }
+
+  .player-row:not(.is-editing) {
+    grid-template-columns: minmax(0, 1fr) 104px 58px;
+    gap: 4px;
+    padding: 5px 4px;
+    min-height: 50px;
+  }
+
+  .player-row.is-editing {
+    grid-template-columns: minmax(0, 1fr) 38px;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .level-control {
+    gap: 2px;
+  }
+
+  .player-level-column {
+    min-width: 0;
+  }
+
+  .level-button {
+    width: 34px;
+    height: 44px;
+    padding: 0;
+  }
+
+  .fight-button {
+    width: 58px;
+    min-width: 0;
+    min-height: 44px;
+    padding: 6px 5px;
+    font-size: 0.82rem;
+  }
+
+  .player-level {
+    min-width: 24px;
+    font-size: 1.45rem;
+  }
+
+  .player-list-heading {
+    grid-template-columns: minmax(0, 1fr) 104px 58px;
+    gap: 4px;
+    padding: 0 4px;
+  }
+
+  .player-name-label {
+    padding: 6px 4px;
+    font-size: 0.9rem;
+  }
+
+  .battle-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .end-fight-button {
+    width: 100%;
   }
 
   .modifier-heading {
