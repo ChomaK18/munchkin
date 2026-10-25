@@ -1,0 +1,459 @@
+:root {
+  color-scheme: light;
+  font-family: "Trebuchet MS", "Arial Narrow", sans-serif;
+  color: #392b25;
+  background: #b7ad97;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #392b27;
+  --ink-raised: #55463d;
+  --muted: #716a5e;
+  --paper: #e5dcc5;
+  --paper-light: #eee5d0;
+  --line: #b6ad97;
+  --olive: #77795b;
+  --olive-dark: #565b4c;
+  --blood: #852f2d;
+  --bone: #f3ead7;
+  --sweat: #65b4c5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #afa995;
+  background-image:
+    radial-gradient(ellipse at 50% 3%, rgb(238 225 195 / 74%), transparent 54%),
+    radial-gradient(ellipse at 0% 55%, rgb(104 113 96 / 24%), transparent 44%),
+    radial-gradient(ellipse at 100% 86%, rgb(111 83 70 / 12%), transparent 39%),
+    radial-gradient(circle at 91% 15%, rgb(101 180 197 / 12%) 0 2px, transparent 3px),
+    repeating-linear-gradient(9deg, transparent 0 26px, rgb(67 54 39 / 3%) 27px, transparent 28px 51px);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  width: min(100% - 32px, 900px);
+  margin: 0 auto;
+  padding: max(24px, env(safe-area-inset-top)) 0 max(28px, env(safe-area-inset-bottom));
+}
+
+.app-header,
+.card-heading,
+.modifier-heading,
+.modifier-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.app-header {
+  align-items: flex-start;
+  padding: 0 0 18px;
+  border-bottom: 2px solid rgb(62 47 39 / 28%);
+}
+
+.eyebrow,
+.result-label {
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #432a27;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(2.45rem, 10vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+  text-shadow: 1px 2px 0 #eee2c5, 3px 4px 0 rgb(66 42 37 / 17%);
+  text-transform: uppercase;
+}
+
+h1 span {
+  color: var(--blood);
+}
+
+.game-subtitle {
+  margin: 9px 0 0;
+  color: #625849;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.install-button,
+.dialog-done {
+  flex: none;
+  border: 1px solid #6e302c;
+  border-radius: 3px;
+  padding: 11px 14px;
+  color: #f3e8d0;
+  background: var(--blood);
+  box-shadow: 0 3px 0 #542522;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.install-button[hidden] {
+  display: none;
+}
+
+.install-button:active,
+.dialog-done:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #542522;
+}
+
+.intro {
+  max-width: 620px;
+  margin: 17px 0 22px;
+  color: #49433a;
+  line-height: 1.55;
+}
+
+.battle-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.combat-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #908872;
+  border-radius: 4px;
+  padding: 20px;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 12% 15%, rgb(146 120 83 / 9%), transparent 28%),
+    radial-gradient(ellipse at 88% 88%, rgb(103 117 92 / 11%), transparent 30%),
+    radial-gradient(circle at 96% 9%, rgb(101 180 197 / 13%) 0 2px, transparent 3px),
+    repeating-linear-gradient(7deg, transparent 0 23px, rgb(73 56 37 / 3%) 24px, transparent 25px 48px);
+  box-shadow: 0 9px 22px rgb(54 40 30 / 18%), inset 0 0 0 4px rgb(255 249 228 / 23%);
+}
+
+.combat-card::after {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  width: 8px;
+  height: 23px;
+  background: var(--blood);
+  content: "";
+  opacity: 0.88;
+}
+
+.player-card {
+  border-top: 5px solid var(--olive);
+}
+
+.monster-card {
+  border-top: 5px solid var(--blood);
+}
+
+.card-heading {
+  margin-bottom: 18px;
+}
+
+.card-heading .eyebrow {
+  color: #6c7050;
+}
+
+.card-heading h2 {
+  margin: 0;
+  color: #432d29;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 0.015em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.total {
+  display: grid;
+  min-width: 70px;
+  min-height: 62px;
+  place-items: center;
+  border: 2px solid #716756;
+  border-radius: 3px;
+  color: #f3ead6;
+  background: #473a33;
+  box-shadow: 2px 3px 0 rgb(54 40 30 / 25%);
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 2.45rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.base-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px dashed #aaa18a;
+  padding-bottom: 17px;
+  color: #383027;
+  font-weight: 800;
+}
+
+.base-field input,
+.modifier-value {
+  width: 88px;
+  min-height: 44px;
+  border: 1px solid #a29a83;
+  border-radius: 3px;
+  padding: 8px 10px;
+  color: #332923;
+  background: #f0e7d2;
+  text-align: center;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.modifier-heading {
+  align-items: baseline;
+  margin: 17px 0 10px;
+}
+
+.modifier-heading h3 {
+  margin: 0;
+  color: #383027;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1.06rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.modifier-heading span {
+  color: #696353;
+  font-size: 0.72rem;
+  text-align: right;
+}
+
+.modifier-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.modifier-row input[type="text"] {
+  min-width: 0;
+  min-height: 44px;
+  flex: 1;
+  border: 1px solid #b4aa93;
+  border-radius: 3px;
+  padding: 9px 11px;
+  color: #332923;
+  background: rgb(247 240 222 / 84%);
+}
+
+.modifier-row input::placeholder {
+  color: #817965;
+}
+
+.modifier-row .modifier-value {
+  width: 72px;
+  min-height: 44px;
+}
+
+.remove-button {
+  display: grid;
+  width: 38px;
+  height: 40px;
+  flex: none;
+  place-items: center;
+  border: 1px solid #a9776e;
+  border-radius: 3px;
+  color: #71322f;
+  background: #ead3c4;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.add-button {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 11px;
+  border: 1px dashed #858364;
+  border-radius: 3px;
+  color: #39352b;
+  background: rgb(113 124 88 / 11%);
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.add-button:hover {
+  background: rgb(113 124 88 / 20%);
+}
+
+.result-panel {
+  margin-top: 17px;
+  border: 1px solid #716a57;
+  border-left: 5px solid #77795b;
+  border-radius: 4px;
+  padding: 17px 20px;
+  color: var(--bone);
+  background:
+    repeating-linear-gradient(135deg, transparent 0 18px, rgb(255 255 255 / 2%) 19px, transparent 20px 38px),
+    #443a34;
+  box-shadow: 0 7px 18px rgb(54 40 30 / 18%);
+}
+
+.result-panel .result-label {
+  color: #dbd0b1;
+}
+
+.result-panel p {
+  margin: 0;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+}
+
+.result-panel[data-result="win"] {
+  border-left-color: #929c65;
+  background-color: #444b3d;
+}
+
+.result-panel[data-result="loss"] {
+  border-left-color: #b84b43;
+  background-color: #58342f;
+}
+
+.save-note,
+.app-status {
+  margin: 13px 0 0;
+  color: #4d473d;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.app-status:empty {
+  display: none;
+}
+
+.install-dialog {
+  width: min(100% - 32px, 420px);
+  border: 1px solid #887e62;
+  border-radius: 4px;
+  padding: 26px;
+  color: #41352d;
+  background: var(--paper-light);
+  box-shadow: 0 20px 70px rgb(40 30 22 / 45%);
+}
+
+.install-dialog::backdrop {
+  background: rgb(41 36 31 / 72%);
+}
+
+.install-dialog h2 {
+  margin: 0 30px 12px 0;
+  color: var(--blood);
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+}
+
+.install-dialog p {
+  color: #574a3b;
+  line-height: 1.55;
+}
+
+.dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  border: 0;
+  color: #685c4e;
+  background: transparent;
+  font-size: 1.6rem;
+}
+
+.dialog-done {
+  width: 100%;
+  margin-top: 8px;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--sweat);
+  outline-offset: 2px;
+}
+
+@media (min-width: 680px) {
+  .battle-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .app-shell {
+    width: min(100% - 24px, 900px);
+  }
+
+  .app-header {
+    gap: 10px;
+  }
+
+  .install-button {
+    padding: 10px;
+    font-size: 0.76rem;
+  }
+
+  .combat-card {
+    padding: 16px;
+  }
+
+  .modifier-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .modifier-heading span {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  button {
+    transition: background-color 140ms ease, transform 100ms ease, box-shadow 100ms ease;
+  }
+}
